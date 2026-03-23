@@ -7,18 +7,17 @@
   <meta name="description" content="Studio Iorio - Consulenza del Lavoro. Gestione del personale, paghe e contributi, adempimenti INPS, INAIL e supporto alle imprese." />
   <style>
     :root{
-      --bg:#0d2621;
-      --bg-soft:#14342d;
-      --bg-soft-2:#1a4139;
-      --card:#183b34;
-      --card-2:#204740;
-      --gold:#d7b45a;
-      --gold-soft:#e6cb83;
-      --text:#f7f2e8;
-      --muted:#d6d1c4;
-      --line:rgba(215,180,90,.22);
-      --shadow:0 18px 44px rgba(0,0,0,.24);
-      --radius:20px;
+      --bg:#0c221d;
+      --bg2:#12312a;
+      --panel:#173b33;
+      --panel2:#1d453d;
+      --gold:#d4af58;
+      --gold-soft:#e4cb87;
+      --text:#f8f4ec;
+      --muted:#d7d1c4;
+      --line:rgba(212,175,88,.24);
+      --shadow:0 20px 50px rgba(0,0,0,.24);
+      --radius:22px;
       --max:1180px;
     }
 
@@ -29,12 +28,13 @@
       font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
       color:var(--text);
       background:
-        radial-gradient(circle at top right, rgba(215,180,90,.14), transparent 20%),
-        linear-gradient(135deg, #0a211c 0%, var(--bg) 45%, #0c2621 100%);
+        radial-gradient(circle at top right, rgba(212,175,88,.12), transparent 20%),
+        radial-gradient(circle at bottom left, rgba(212,175,88,.08), transparent 18%),
+        linear-gradient(135deg, var(--bg) 0%, var(--bg2) 45%, #0d2621 100%);
     }
 
     .container{
-      width:min(var(--max), calc(100% - 40px));
+      width:min(var(--max), calc(100% - 42px));
       margin:0 auto;
     }
 
@@ -42,8 +42,8 @@
       position:sticky;
       top:0;
       z-index:50;
-      background:rgba(10,33,28,.72);
       backdrop-filter: blur(10px);
+      background:rgba(10,28,24,.72);
       border-bottom:1px solid rgba(255,255,255,.05);
     }
 
@@ -51,8 +51,8 @@
       display:flex;
       justify-content:space-between;
       align-items:center;
-      padding:16px 0;
       gap:20px;
+      padding:16px 0;
     }
 
     .brand{
@@ -63,7 +63,7 @@
 
     .brand-title{
       color:var(--gold);
-      font-size:28px;
+      font-size:30px;
       font-weight:800;
       letter-spacing:.04em;
     }
@@ -71,9 +71,9 @@
     .brand-sub{
       color:var(--muted);
       font-size:12px;
-      letter-spacing:.18em;
       text-transform:uppercase;
-      margin-top:6px;
+      letter-spacing:.22em;
+      margin-top:8px;
     }
 
     .nav{
@@ -108,7 +108,7 @@
     .btn-primary{
       background:linear-gradient(135deg, var(--gold-soft), var(--gold));
       color:#1a241f;
-      box-shadow:0 10px 24px rgba(0,0,0,.18);
+      box-shadow:0 10px 26px rgba(0,0,0,.18);
     }
 
     .btn-primary:hover{
@@ -127,14 +127,37 @@
     }
 
     .hero{
-      padding:76px 0 48px;
+      padding:88px 0 52px;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .hero::after{
+      content:"";
+      position:absolute;
+      right:-120px;
+      top:40px;
+      width:420px;
+      height:420px;
+      border-radius:50%;
+      border:1px solid rgba(212,175,88,.10);
+      pointer-events:none;
     }
 
     .hero-grid{
       display:grid;
-      grid-template-columns: 1.05fr .95fr;
-      gap:34px;
+      grid-template-columns:1.08fr .92fr;
+      gap:38px;
       align-items:center;
+    }
+
+    .hero-logo{
+      width:84px;
+      height:auto;
+      display:block;
+      margin:0 0 22px;
+      border-radius:10px;
+      filter: drop-shadow(0 8px 18px rgba(0,0,0,.16));
     }
 
     .eyebrow{
@@ -146,52 +169,54 @@
       font-size:12px;
       text-transform:uppercase;
       letter-spacing:.14em;
-      margin-bottom:18px;
+      margin-bottom:20px;
       background:rgba(255,255,255,.02);
     }
 
-    .hero-logo{
-      width:78px;
-      height:auto;
-      display:block;
-      margin:0 0 18px;
-      filter: drop-shadow(0 6px 12px rgba(0,0,0,.18));
-      border-radius:8px;
-    }
-
     h1{
-      margin:0 0 16px;
-      font-size:60px;
+      margin:0 0 18px;
+      font-size:64px;
       line-height:1.02;
-      letter-spacing:-.02em;
+      letter-spacing:-.025em;
       color:var(--gold);
+      max-width:700px;
     }
 
     .hero p{
       margin:0;
       color:var(--muted);
       font-size:20px;
-      line-height:1.7;
-      max-width:740px;
+      line-height:1.75;
+      max-width:720px;
     }
 
     .hero-actions{
       display:flex;
       gap:14px;
-      margin-top:28px;
+      margin-top:30px;
       flex-wrap:wrap;
     }
 
     .hero-card{
       background:
-        radial-gradient(circle at top right, rgba(215,180,90,.10), transparent 26%),
+        radial-gradient(circle at top right, rgba(212,175,88,.10), transparent 24%),
         linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.06));
       border:1px solid rgba(255,255,255,.06);
       border-radius:28px;
-      padding:30px;
+      padding:32px;
       box-shadow:var(--shadow);
       position:relative;
       overflow:hidden;
+    }
+
+    .hero-card::before{
+      content:"";
+      position:absolute;
+      inset:auto -60px -60px auto;
+      width:220px;
+      height:220px;
+      border-radius:50%;
+      border:1px solid rgba(212,175,88,.10);
     }
 
     .hero-card h2{
@@ -202,63 +227,78 @@
 
     .hero-card p{
       font-size:16px;
-      line-height:1.8;
+      line-height:1.85;
       color:var(--muted);
     }
 
     .mini-points{
-      margin-top:22px;
       display:grid;
       gap:12px;
+      margin-top:24px;
     }
 
     .mini-point{
+      padding:14px 16px;
       background:rgba(255,255,255,.04);
       border:1px solid rgba(255,255,255,.05);
-      padding:14px 16px;
       border-radius:14px;
       color:var(--text);
       font-size:15px;
     }
 
-    .section{padding:34px 0}
+    .section{
+      padding:36px 0;
+    }
 
     .section-title{
       color:var(--gold);
       font-size:36px;
-      margin:0 0 10px;
+      margin:0 0 12px;
     }
 
     .section-intro{
+      margin:0 0 28px;
       color:var(--muted);
       font-size:17px;
-      line-height:1.7;
-      margin:0 0 26px;
+      line-height:1.75;
       max-width:860px;
     }
 
     .services{
       display:grid;
       grid-template-columns:repeat(2, 1fr);
-      gap:18px;
+      gap:20px;
     }
 
     .service-card{
-      background:linear-gradient(180deg, var(--card), var(--card-2));
+      background:linear-gradient(180deg, var(--panel), var(--panel2));
       border:1px solid rgba(255,255,255,.06);
       border-radius:var(--radius);
-      padding:24px;
+      padding:26px;
       box-shadow:var(--shadow);
       transition:.2s ease;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .service-card::after{
+      content:"";
+      position:absolute;
+      right:-30px;
+      top:-30px;
+      width:120px;
+      height:120px;
+      border-radius:50%;
+      border:1px solid rgba(212,175,88,.08);
     }
 
     .service-card:hover{
       transform:translateY(-2px);
-      border-color:rgba(215,180,90,.22);
+      border-color:rgba(212,175,88,.22);
     }
 
     .service-card h3{
-      margin:0 0 10px;
+      margin:0 0 12px;
       color:var(--text);
       font-size:24px;
     }
@@ -266,36 +306,35 @@
     .service-card p{
       margin:0;
       color:var(--muted);
-      line-height:1.7;
       font-size:16px;
+      line-height:1.75;
     }
 
-    .approach{
-      margin-top:8px;
-      background:rgba(255,255,255,.03);
-      border:1px solid rgba(215,180,90,.14);
+    .approach-box{
+      background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.05));
+      border:1px solid rgba(212,175,88,.14);
       border-left:4px solid var(--gold);
-      border-radius:16px;
-      padding:24px;
+      border-radius:18px;
+      padding:26px;
       box-shadow:var(--shadow);
     }
 
-    .approach p{
+    .approach-box p{
       margin:0;
       color:var(--text);
       font-size:18px;
-      line-height:1.8;
+      line-height:1.85;
     }
 
     .contact-wrap{
       display:grid;
       grid-template-columns:1fr .95fr;
-      gap:20px;
+      gap:22px;
       align-items:stretch;
     }
 
     .contact-box{
-      background:linear-gradient(180deg, var(--card), var(--card-2));
+      background:linear-gradient(180deg, var(--panel), var(--panel2));
       border:1px solid rgba(255,255,255,.06);
       border-radius:var(--radius);
       padding:28px;
@@ -309,15 +348,15 @@
     }
 
     .contact-box p{
+      margin:0 0 20px;
       color:var(--muted);
       line-height:1.8;
-      margin:0 0 20px;
     }
 
     .contact-list{
       display:grid;
       gap:14px;
-      margin:18px 0 0;
+      margin-top:18px;
     }
 
     .contact-item{
@@ -339,34 +378,31 @@
 
     .cta-panel strong{
       color:var(--gold-soft);
-      font-size:30px;
-      line-height:1.2;
+      font-size:32px;
+      line-height:1.18;
     }
 
     .cta-panel span{
       color:var(--muted);
       font-size:17px;
-      line-height:1.8;
+      line-height:1.85;
     }
 
     footer{
-      margin-top:44px;
-      padding:26px 0 34px;
+      margin-top:46px;
+      padding:28px 0 36px;
       border-top:1px solid rgba(255,255,255,.05);
-      color:rgba(255,255,255,.72);
       text-align:center;
       font-size:14px;
+      color:rgba(255,255,255,.74);
     }
 
-    @media (max-width: 900px){
+    @media (max-width: 920px){
       .hero-grid,
       .services,
       .contact-wrap{
         grid-template-columns:1fr;
       }
-
-      h1{font-size:42px}
-      .hero p{font-size:18px}
 
       .topbar-inner{
         flex-direction:column;
@@ -374,6 +410,8 @@
       }
 
       .nav{gap:12px}
+      h1{font-size:44px}
+      .hero p{font-size:18px}
     }
   </style>
 </head>
@@ -398,11 +436,11 @@
     <section class="hero">
       <div class="container hero-grid">
         <div>
-          <img src="logo-cdl.jpeg" alt="Logo CdL" class="hero-logo">
+          <img src="logo-cdl.jpg" alt="Logo CdL" class="hero-logo">
           <div class="eyebrow">Consulenza del lavoro per imprese</div>
-          <h1>Studio professionale, immagine solida, visione moderna</h1>
+          <h1>Eleganza professionale, supporto concreto alle aziende</h1>
           <p>
-            Studio Iorio supporta imprese e realtà professionali nella gestione del personale, negli adempimenti del lavoro e nell’organizzazione dei rapporti con gli enti, con uno stile chiaro, autorevole e affidabile.
+            Studio Iorio offre consulenza del lavoro e supporto nella gestione del personale con un’impostazione chiara, affidabile e orientata alla continuità del servizio.
           </p>
 
           <div class="hero-actions">
@@ -412,14 +450,14 @@
         </div>
 
         <div class="hero-card">
-          <h2>Consulenza del Lavoro</h2>
+          <h2>Studio professionale</h2>
           <p>
-            Un sito vetrina elegante e professionale, pensato per comunicare serietà, competenza e capacità di affiancare le imprese nelle principali esigenze di gestione del lavoro.
+            Una presenza istituzionale curata, servizi esposti in modo chiaro e un’immagine coerente con uno studio che desidera comunicare solidità, ordine e affidabilità.
           </p>
 
           <div class="mini-points">
             <div class="mini-point">Gestione del personale e adempimenti del lavoro</div>
-            <div class="mini-point">Supporto a imprese, professionisti e realtà del territorio</div>
+            <div class="mini-point">Supporto a imprese, professionisti e attività del territorio</div>
             <div class="mini-point">Esperti nella gestione dei lavoratori edili</div>
           </div>
         </div>
@@ -430,21 +468,21 @@
       <div class="container">
         <h2 class="section-title">Servizi</h2>
         <p class="section-intro">
-          Una consulenza strutturata, chiara e orientata all’efficienza organizzativa, con attenzione alla correttezza normativa e alla gestione puntuale delle esigenze aziendali.
+          Un supporto strutturato nella gestione del lavoro, degli adempimenti e delle esigenze aziendali, con attenzione alla correttezza normativa e all’efficienza organizzativa.
         </p>
 
         <div class="services">
           <article class="service-card">
             <h3>Gestione del personale</h3>
             <p>
-              Dall’instaurazione del rapporto di lavoro alla sua cessazione, con assistenza continua nelle dinamiche amministrative e organizzative.
+              Dall’instaurazione del rapporto di lavoro alla cessazione, con supporto costante nelle dinamiche amministrative e organizzative.
             </p>
           </article>
 
           <article class="service-card">
             <h3>Elaborazione paghe e contributi</h3>
             <p>
-              Cedolini, CU, F24, Uniemens e gestione completa degli adempimenti periodici legati al personale dipendente.
+              Cedolini, CU, F24, Uniemens e gestione completa degli adempimenti periodici connessi al personale dipendente.
             </p>
           </article>
 
@@ -472,7 +510,7 @@
           <article class="service-card">
             <h3>Supporto alle imprese</h3>
             <p>
-              Un interlocutore professionale per aziende che cercano chiarezza, rapidità operativa e una presenza affidabile nella consulenza del lavoro.
+              Un riferimento professionale per aziende che cercano chiarezza, rapidità operativa e continuità nella consulenza del lavoro.
             </p>
           </article>
         </div>
@@ -482,9 +520,9 @@
     <section id="approccio" class="section">
       <div class="container">
         <h2 class="section-title">Approccio</h2>
-        <div class="approach">
+        <div class="approach-box">
           <p>
-            Studio Iorio unisce competenza, esperienza e visione moderna, offrendo soluzioni chiare, rapide e concrete per le imprese, con un’impostazione professionale orientata all’affidabilità, alla continuità e alla qualità del servizio.
+            Studio Iorio unisce competenza, esperienza e visione moderna, offrendo soluzioni chiare, rapide e concrete per le imprese, con un’impostazione professionale orientata all’affidabilità, alla qualità del servizio e alla cura dell’immagine.
           </p>
         </div>
       </div>
