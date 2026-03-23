@@ -3,56 +3,80 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Studio Iorio CDL</title>
+<title>Studio Iorio | Consulenza del Lavoro</title>
 
 <style>
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #0f2e2a, #1e4b42);
+    background-color: #0f2e2a;
     color: #f5f5f5;
-    text-align: center;
 }
 
 .container {
-    padding: 50px 20px;
+    max-width: 1100px;
+    margin: auto;
+    padding: 40px 20px;
+}
+
+header {
+    text-align: center;
+    padding: 40px 0;
 }
 
 h1 {
-    font-size: 42px;
     color: #d4af37;
+    font-size: 42px;
     margin-bottom: 5px;
 }
 
 h2 {
     font-weight: normal;
-    margin-bottom: 30px;
-}
-
-.button {
-    display: inline-block;
-    padding: 16px 28px;
-    margin: 15px;
-    background: #d4af37;
-    color: black;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 8px;
+    margin-bottom: 20px;
 }
 
 .section {
     margin-top: 50px;
 }
 
-.service {
-    margin: 12px 0;
-    font-size: 18px;
+.section h3 {
+    color: #d4af37;
+    margin-bottom: 15px;
+}
+
+.services {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.card {
+    background-color: #163a34;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.card strong {
+    display: block;
+    margin-bottom: 8px;
 }
 
 .footer {
-    margin-top: 70px;
+    margin-top: 60px;
+    text-align: center;
     font-size: 14px;
-    opacity: 0.8;
+    opacity: 0.7;
+}
+
+.button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 20px;
+    background-color: #d4af37;
+    color: black;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
 }
 </style>
 </head>
@@ -61,51 +85,65 @@ h2 {
 
 <div class="container">
 
+<header>
     <h1>STUDIO IORIO</h1>
     <h2>Consulenza del Lavoro</h2>
+    <p>
+        Supporto professionale per imprese nella gestione del personale,<br>
+        con un approccio moderno e orientato all'efficienza.
+    </p>
+</header>
 
-    <p>Supporto completo alle imprese nella gestione del personale</p>
+<section class="section">
+    <h3>Servizi</h3>
 
-    <a class="button" href="https://wa.me/393385462044?text=Buongiorno%20vorrei%20una%20consulenza">
-        Scrivici su WhatsApp
+    <div class="services">
+        <div class="card">
+            <strong>Gestione del personale</strong>
+            Dall'instaurazione del rapporto di lavoro alla sua cessazione.
+        </div>
+
+        <div class="card">
+            <strong>Elaborazione paghe e contributi</strong>
+            Cedolini, CU, F24, Uniemens e gestione completa degli adempimenti.
+        </div>
+
+        <div class="card">
+            <strong>Adempimenti INPS, INAIL e Agenzia Entrate</strong>
+            Gestione puntuale e conforme della posizione aziendale.
+        </div>
+
+        <div class="card">
+            <strong>Consulenza contrattuale e normativa</strong>
+            Supporto continuo nelle scelte aziendali e gestione del personale.
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <h3>Approccio</h3>
+    <p>
+        Studio Iorio unisce competenza, esperienza e visione moderna,<br>
+        offrendo soluzioni chiare, rapide e concrete per le imprese.
+    </p>
+</section>
+
+<section class="section">
+    <h3>Contatti</h3>
+    <p>
+        📞 338 5462044<br>
+        📩 info@studioioriocdl.it<br>
+        🌐 www.studioioriocdl.it
+    </p>
+
+    <a class="button" href="https://wa.me/393385462044?text=Buongiorno%20vorrei%20informazioni">
+        Contattaci su WhatsApp
     </a>
+</section>
 
-    <div class="section">
-        <h2>Servizi</h2>
-
-        <div class="service">✔ Gestione completa del personale</div>
-        <div class="service">✔ Paghe e contributi</div>
-        <div class="service">✔ INPS - INAIL - Agenzia Entrate</div>
-        <div class="service">✔ Consulenza contrattuale</div>
-    </div>
-
-    <div class="section">
-        <h2>Approccio</h2>
-        <p>
-            Approccio moderno unito a esperienza consolidata.<br>
-            Soluzioni rapide e concrete per la tua azienda.
-        </p>
-    </div>
-
-    <div class="section">
-        <h2>Contatti</h2>
-        <p>
-            Dott.ssa Palmira Marino<br>
-            Consulente del Lavoro<br><br>
-
-            📞 338 5462044<br>
-            📩 info@studioioriocdl.it<br>
-            🌐 www.studioioriocdl.it
-        </p>
-    </div>
-
-    <a class="button" href="https://wa.me/393385462044?text=Buongiorno%20vorrei%20una%20consulenza">
-        Richiedi una consulenza
-    </a>
-
-    <div class="footer">
-        Studio Iorio CDL
-    </div>
+<div class="footer">
+    © Studio Iorio - Consulenza del Lavoro
+</div>
 
 </div>
 
