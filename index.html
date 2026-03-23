@@ -7,17 +7,18 @@
   <meta name="description" content="Studio Iorio - Consulenza del Lavoro. Gestione del personale, paghe e contributi, adempimenti INPS, INAIL e supporto alle imprese." />
   <style>
     :root{
-      --bg:#102b25;
-      --bg-soft:#173832;
-      --card:#1b3f38;
-      --card-2:#214942;
-      --gold:#d5af46;
-      --gold-soft:#e3c978;
-      --text:#f6f3ea;
-      --muted:#d6d2c6;
-      --line:rgba(213,175,70,.24);
-      --shadow:0 18px 40px rgba(0,0,0,.22);
-      --radius:18px;
+      --bg:#0d2621;
+      --bg-soft:#14342d;
+      --bg-soft-2:#1a4139;
+      --card:#183b34;
+      --card-2:#204740;
+      --gold:#d7b45a;
+      --gold-soft:#e6cb83;
+      --text:#f7f2e8;
+      --muted:#d6d1c4;
+      --line:rgba(215,180,90,.22);
+      --shadow:0 18px 44px rgba(0,0,0,.24);
+      --radius:20px;
       --max:1180px;
     }
 
@@ -25,11 +26,11 @@
     html{scroll-behavior:smooth}
     body{
       margin:0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
       color:var(--text);
       background:
-        radial-gradient(circle at top right, rgba(213,175,70,.12), transparent 18%),
-        linear-gradient(135deg, #0c231e 0%, var(--bg) 45%, #0b2621 100%);
+        radial-gradient(circle at top right, rgba(215,180,90,.14), transparent 20%),
+        linear-gradient(135deg, #0a211c 0%, var(--bg) 45%, #0c2621 100%);
     }
 
     .container{
@@ -41,8 +42,8 @@
       position:sticky;
       top:0;
       z-index:50;
+      background:rgba(10,33,28,.72);
       backdrop-filter: blur(10px);
-      background:rgba(12,35,30,.72);
       border-bottom:1px solid rgba(255,255,255,.05);
     }
 
@@ -89,9 +90,7 @@
       transition:.2s ease;
     }
 
-    .nav a:hover{
-      color:var(--gold-soft);
-    }
+    .nav a:hover{color:var(--gold-soft)}
 
     .btn{
       display:inline-flex;
@@ -108,7 +107,7 @@
 
     .btn-primary{
       background:linear-gradient(135deg, var(--gold-soft), var(--gold));
-      color:#1b241f;
+      color:#1a241f;
       box-shadow:0 10px 24px rgba(0,0,0,.18);
     }
 
@@ -128,12 +127,12 @@
     }
 
     .hero{
-      padding:72px 0 46px;
+      padding:76px 0 48px;
     }
 
     .hero-grid{
       display:grid;
-      grid-template-columns: 1.1fr .9fr;
+      grid-template-columns: 1.05fr .95fr;
       gap:34px;
       align-items:center;
     }
@@ -151,9 +150,18 @@
       background:rgba(255,255,255,.02);
     }
 
+    .hero-logo{
+      width:78px;
+      height:auto;
+      display:block;
+      margin:0 0 18px;
+      filter: drop-shadow(0 6px 12px rgba(0,0,0,.18));
+      border-radius:8px;
+    }
+
     h1{
       margin:0 0 16px;
-      font-size:58px;
+      font-size:60px;
       line-height:1.02;
       letter-spacing:-.02em;
       color:var(--gold);
@@ -175,28 +183,21 @@
     }
 
     .hero-card{
-      background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.06));
+      background:
+        radial-gradient(circle at top right, rgba(215,180,90,.10), transparent 26%),
+        linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.06));
       border:1px solid rgba(255,255,255,.06);
-      border-radius:26px;
-      padding:28px;
+      border-radius:28px;
+      padding:30px;
       box-shadow:var(--shadow);
       position:relative;
       overflow:hidden;
     }
 
-    .hero-card::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:
-        radial-gradient(circle at top right, rgba(213,175,70,.18), transparent 22%);
-      pointer-events:none;
-    }
-
     .hero-card h2{
       margin:0 0 16px;
       color:var(--gold-soft);
-      font-size:28px;
+      font-size:30px;
     }
 
     .hero-card p{
@@ -220,13 +221,11 @@
       font-size:15px;
     }
 
-    .section{
-      padding:34px 0;
-    }
+    .section{padding:34px 0}
 
     .section-title{
       color:var(--gold);
-      font-size:34px;
+      font-size:36px;
       margin:0 0 10px;
     }
 
@@ -255,7 +254,7 @@
 
     .service-card:hover{
       transform:translateY(-2px);
-      border-color:rgba(213,175,70,.22);
+      border-color:rgba(215,180,90,.22);
     }
 
     .service-card h3{
@@ -274,7 +273,7 @@
     .approach{
       margin-top:8px;
       background:rgba(255,255,255,.03);
-      border:1px solid rgba(213,175,70,.14);
+      border:1px solid rgba(215,180,90,.14);
       border-left:4px solid var(--gold);
       border-radius:16px;
       padding:24px;
@@ -354,7 +353,7 @@
       margin-top:44px;
       padding:26px 0 34px;
       border-top:1px solid rgba(255,255,255,.05);
-      color:rgba(255,255,255,.7);
+      color:rgba(255,255,255,.72);
       text-align:center;
       font-size:14px;
     }
@@ -366,22 +365,15 @@
         grid-template-columns:1fr;
       }
 
-      h1{
-        font-size:42px;
-      }
-
-      .hero p{
-        font-size:18px;
-      }
+      h1{font-size:42px}
+      .hero p{font-size:18px}
 
       .topbar-inner{
         flex-direction:column;
         align-items:flex-start;
       }
 
-      .nav{
-        gap:12px;
-      }
+      .nav{gap:12px}
     }
   </style>
 </head>
@@ -406,10 +398,11 @@
     <section class="hero">
       <div class="container hero-grid">
         <div>
+          <img src="logo-cdl.jpeg" alt="Logo CdL" class="hero-logo">
           <div class="eyebrow">Consulenza del lavoro per imprese</div>
-          <h1>Competenza, solidità e visione moderna</h1>
+          <h1>Studio professionale, immagine solida, visione moderna</h1>
           <p>
-            Studio Iorio supporta imprese e realtà professionali nella gestione del personale, negli adempimenti del lavoro e nell’organizzazione dei rapporti con gli enti, con un approccio chiaro, operativo e affidabile.
+            Studio Iorio supporta imprese e realtà professionali nella gestione del personale, negli adempimenti del lavoro e nell’organizzazione dei rapporti con gli enti, con uno stile chiaro, autorevole e affidabile.
           </p>
 
           <div class="hero-actions">
@@ -419,15 +412,15 @@
         </div>
 
         <div class="hero-card">
-          <h2>Studio professionale</h2>
+          <h2>Consulenza del Lavoro</h2>
           <p>
-            Un’immagine professionale, un linguaggio chiaro e servizi strutturati per offrire alle aziende un punto di riferimento serio nella gestione del lavoro e del personale.
+            Un sito vetrina elegante e professionale, pensato per comunicare serietà, competenza e capacità di affiancare le imprese nelle principali esigenze di gestione del lavoro.
           </p>
 
           <div class="mini-points">
-            <div class="mini-point">Assistenza operativa e consulenziale</div>
-            <div class="mini-point">Gestione puntuale degli adempimenti</div>
-            <div class="mini-point">Supporto dedicato a imprese e settore edile</div>
+            <div class="mini-point">Gestione del personale e adempimenti del lavoro</div>
+            <div class="mini-point">Supporto a imprese, professionisti e realtà del territorio</div>
+            <div class="mini-point">Esperti nella gestione dei lavoratori edili</div>
           </div>
         </div>
       </div>
@@ -437,14 +430,14 @@
       <div class="container">
         <h2 class="section-title">Servizi</h2>
         <p class="section-intro">
-          Un supporto completo nella gestione del personale e degli adempimenti, con attenzione alla correttezza normativa e all’efficienza organizzativa.
+          Una consulenza strutturata, chiara e orientata all’efficienza organizzativa, con attenzione alla correttezza normativa e alla gestione puntuale delle esigenze aziendali.
         </p>
 
         <div class="services">
           <article class="service-card">
             <h3>Gestione del personale</h3>
             <p>
-              Dall’instaurazione del rapporto di lavoro alla sua cessazione, con supporto continuo nelle dinamiche organizzative e amministrative.
+              Dall’instaurazione del rapporto di lavoro alla sua cessazione, con assistenza continua nelle dinamiche amministrative e organizzative.
             </p>
           </article>
 
@@ -491,7 +484,7 @@
         <h2 class="section-title">Approccio</h2>
         <div class="approach">
           <p>
-            Studio Iorio unisce competenza, esperienza e visione moderna, offrendo soluzioni chiare, rapide e concrete per le imprese, con uno stile professionale orientato all’affidabilità e alla continuità.
+            Studio Iorio unisce competenza, esperienza e visione moderna, offrendo soluzioni chiare, rapide e concrete per le imprese, con un’impostazione professionale orientata all’affidabilità, alla continuità e alla qualità del servizio.
           </p>
         </div>
       </div>
