@@ -7,18 +7,21 @@
   <meta name="description" content="Studio Iorio - Consulenza del Lavoro. Gestione del personale, paghe e contributi, adempimenti INPS, INAIL e supporto alle imprese." />
   <style>
     :root{
-      --bg:#0c221d;
-      --bg2:#12312a;
-      --panel:#173b33;
-      --panel2:#1d453d;
+      --bg:#0a1f1b;
+      --bg-2:#102b25;
+      --bg-3:#16352e;
+      --panel:#173832;
+      --panel-2:#1c433b;
+      --panel-3:#214c43;
       --gold:#d4af58;
-      --gold-soft:#e4cb87;
-      --text:#f8f4ec;
-      --muted:#d7d1c4;
-      --line:rgba(212,175,88,.24);
-      --shadow:0 20px 50px rgba(0,0,0,.24);
-      --radius:22px;
-      --max:1180px;
+      --gold-soft:#e6cc8b;
+      --text:#f7f2e8;
+      --muted:#d3cec2;
+      --line:rgba(212,175,88,.22);
+      --line-soft:rgba(255,255,255,.06);
+      --shadow:0 20px 60px rgba(0,0,0,.26);
+      --radius:24px;
+      --max:1200px;
     }
 
     *{box-sizing:border-box}
@@ -28,9 +31,9 @@
       font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
       color:var(--text);
       background:
-        radial-gradient(circle at top right, rgba(212,175,88,.12), transparent 20%),
-        radial-gradient(circle at bottom left, rgba(212,175,88,.08), transparent 18%),
-        linear-gradient(135deg, var(--bg) 0%, var(--bg2) 45%, #0d2621 100%);
+        radial-gradient(circle at top right, rgba(212,175,88,.13), transparent 18%),
+        radial-gradient(circle at 10% 90%, rgba(212,175,88,.07), transparent 20%),
+        linear-gradient(135deg, var(--bg) 0%, var(--bg-2) 46%, var(--bg-3) 100%);
     }
 
     .container{
@@ -42,9 +45,9 @@
       position:sticky;
       top:0;
       z-index:50;
-      backdrop-filter: blur(10px);
-      background:rgba(10,28,24,.72);
-      border-bottom:1px solid rgba(255,255,255,.05);
+      backdrop-filter: blur(12px);
+      background:rgba(10,24,21,.76);
+      border-bottom:1px solid var(--line-soft);
     }
 
     .topbar-inner{
@@ -65,14 +68,14 @@
       color:var(--gold);
       font-size:30px;
       font-weight:800;
-      letter-spacing:.04em;
+      letter-spacing:.05em;
     }
 
     .brand-sub{
       color:var(--muted);
       font-size:12px;
       text-transform:uppercase;
-      letter-spacing:.22em;
+      letter-spacing:.23em;
       margin-top:8px;
     }
 
@@ -90,7 +93,9 @@
       transition:.2s ease;
     }
 
-    .nav a:hover{color:var(--gold-soft)}
+    .nav a:hover{
+      color:var(--gold-soft);
+    }
 
     .btn{
       display:inline-flex;
@@ -103,11 +108,12 @@
       transition:.2s ease;
       border:1px solid transparent;
       cursor:pointer;
+      white-space:nowrap;
     }
 
     .btn-primary{
       background:linear-gradient(135deg, var(--gold-soft), var(--gold));
-      color:#1a241f;
+      color:#1c241f;
       box-shadow:0 10px 26px rgba(0,0,0,.18);
     }
 
@@ -127,27 +133,27 @@
     }
 
     .hero{
-      padding:88px 0 52px;
+      padding:86px 0 56px;
       position:relative;
       overflow:hidden;
     }
 
-    .hero::after{
+    .hero::before{
       content:"";
       position:absolute;
-      right:-120px;
-      top:40px;
-      width:420px;
-      height:420px;
+      right:-140px;
+      top:10px;
+      width:440px;
+      height:440px;
       border-radius:50%;
-      border:1px solid rgba(212,175,88,.10);
+      border:1px solid rgba(212,175,88,.08);
       pointer-events:none;
     }
 
     .hero-grid{
       display:grid;
-      grid-template-columns:1.08fr .92fr;
-      gap:38px;
+      grid-template-columns:1.05fr .95fr;
+      gap:40px;
       align-items:center;
     }
 
@@ -157,7 +163,7 @@
       display:block;
       margin:0 0 22px;
       border-radius:10px;
-      filter: drop-shadow(0 8px 18px rgba(0,0,0,.16));
+      filter:drop-shadow(0 8px 18px rgba(0,0,0,.16));
     }
 
     .eyebrow{
@@ -173,22 +179,21 @@
       background:rgba(255,255,255,.02);
     }
 
-     h1{
-  margin:0 0 18px;
-  font-size:64px;
-  line-height:1.02;
-  letter-spacing:-.025em;
-  color:var(--gold);
-  max-width:760px;
-}
-    
+    h1{
+      margin:0 0 18px;
+      font-size:66px;
+      line-height:1.02;
+      letter-spacing:-.028em;
+      color:var(--gold);
+      max-width:780px;
+    }
 
     .hero p{
       margin:0;
       color:var(--muted);
       font-size:20px;
-      line-height:1.75;
-      max-width:720px;
+      line-height:1.82;
+      max-width:760px;
     }
 
     .hero-actions{
@@ -203,21 +208,23 @@
         radial-gradient(circle at top right, rgba(212,175,88,.10), transparent 24%),
         linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.06));
       border:1px solid rgba(255,255,255,.06);
-      border-radius:28px;
-      padding:32px;
+      border-radius:30px;
+      padding:34px;
       box-shadow:var(--shadow);
       position:relative;
       overflow:hidden;
     }
 
-    .hero-card::before{
+    .hero-card::after{
       content:"";
       position:absolute;
-      inset:auto -60px -60px auto;
-      width:220px;
-      height:220px;
+      right:-50px;
+      bottom:-50px;
+      width:200px;
+      height:200px;
       border-radius:50%;
-      border:1px solid rgba(212,175,88,.10);
+      border:1px solid rgba(212,175,88,.08);
+      pointer-events:none;
     }
 
     .hero-card h2{
@@ -228,7 +235,7 @@
 
     .hero-card p{
       font-size:16px;
-      line-height:1.85;
+      line-height:1.9;
       color:var(--muted);
     }
 
@@ -245,26 +252,26 @@
       border-radius:14px;
       color:var(--text);
       font-size:15px;
+      line-height:1.6;
     }
 
     .section{
-      padding:36px 0;
+      padding:38px 0;
     }
 
-    .section-title{.section-title{
-  color:var(--gold);
-  font-size:38px;
-  margin:0 0 12px;
-}
-      
-    
+    .section-title{
+      color:var(--gold);
+      font-size:38px;
+      margin:0 0 12px;
+      letter-spacing:-.01em;
+    }
 
     .section-intro{
-      margin:0 0 28px;
+      margin:0 0 30px;
       color:var(--muted);
       font-size:17px;
-      line-height:1.75;
-      max-width:860px;
+      line-height:1.82;
+      max-width:900px;
     }
 
     .services{
@@ -274,7 +281,7 @@
     }
 
     .service-card{
-      background:linear-gradient(180deg, var(--panel), var(--panel2));
+      background:linear-gradient(180deg, var(--panel), var(--panel-2));
       border:1px solid rgba(255,255,255,.06);
       border-radius:var(--radius);
       padding:26px;
@@ -284,15 +291,16 @@
       overflow:hidden;
     }
 
-    .service-card::after{
+    .service-card::before{
       content:"";
       position:absolute;
-      right:-30px;
-      top:-30px;
-      width:120px;
-      height:120px;
+      right:-24px;
+      top:-24px;
+      width:110px;
+      height:110px;
       border-radius:50%;
       border:1px solid rgba(212,175,88,.08);
+      pointer-events:none;
     }
 
     .service-card:hover{
@@ -310,10 +318,11 @@
       margin:0;
       color:var(--muted);
       font-size:16px;
-      line-height:1.75;
+      line-height:1.78;
     }
 
-    .approach-box{
+    .approach-box,
+    .bio-box{
       background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.05));
       border:1px solid rgba(212,175,88,.14);
       border-left:4px solid var(--gold);
@@ -322,12 +331,40 @@
       box-shadow:var(--shadow);
     }
 
-    .approach-box p{
-  margin:0;
-  color:var(--text);
-  font-size:18px;
-  line-height:1.9;
-}
+    .approach-box p,
+    .bio-box p{
+      margin:0;
+      color:var(--text);
+      font-size:18px;
+      line-height:1.92;
+    }
+
+    .why-grid{
+      display:grid;
+      grid-template-columns:repeat(2, 1fr);
+      gap:20px;
+    }
+
+    .why-card{
+      background:linear-gradient(180deg, var(--panel), var(--panel-3));
+      border:1px solid rgba(255,255,255,.06);
+      border-radius:22px;
+      padding:24px;
+      box-shadow:var(--shadow);
+    }
+
+    .why-card h3{
+      margin:0 0 10px;
+      color:var(--gold-soft);
+      font-size:24px;
+    }
+
+    .why-card p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.8;
+      font-size:16px;
+    }
 
     .contact-wrap{
       display:grid;
@@ -337,7 +374,7 @@
     }
 
     .contact-box{
-      background:linear-gradient(180deg, var(--panel), var(--panel2));
+      background:linear-gradient(180deg, var(--panel), var(--panel-2));
       border:1px solid rgba(255,255,255,.06);
       border-radius:var(--radius);
       padding:28px;
@@ -353,7 +390,8 @@
     .contact-box p{
       margin:0 0 20px;
       color:var(--muted);
-      line-height:1.8;
+      line-height:1.85;
+      font-size:16px;
     }
 
     .contact-list{
@@ -369,6 +407,7 @@
       border:1px solid rgba(255,255,255,.04);
       color:var(--text);
       font-size:16px;
+      line-height:1.6;
     }
 
     .cta-panel{
@@ -382,17 +421,17 @@
     .cta-panel strong{
       color:var(--gold-soft);
       font-size:32px;
-      line-height:1.18;
+      line-height:1.2;
     }
 
     .cta-panel span{
       color:var(--muted);
       font-size:17px;
-      line-height:1.85;
+      line-height:1.9;
     }
 
     footer{
-      margin-top:46px;
+      margin-top:48px;
       padding:28px 0 36px;
       border-top:1px solid rgba(255,255,255,.05);
       text-align:center;
@@ -403,6 +442,7 @@
     @media (max-width: 920px){
       .hero-grid,
       .services,
+      .why-grid,
       .contact-wrap{
         grid-template-columns:1fr;
       }
@@ -429,7 +469,8 @@
 
       <nav class="nav">
         <a href="#servizi">Servizi</a>
-        <a href="#approccio">Approccio</a>
+        <a href="#amelia-iorio">Amelia Iorio</a>
+        <a href="#perche-sceglierci">Perché noi</a>
         <a href="#contatti">Contatti</a>
       </nav>
     </div>
@@ -443,9 +484,9 @@
           <div class="eyebrow">Consulenza del lavoro per imprese</div>
           <h1>Competenza, esperienza e visione nella consulenza del lavoro</h1>
           <p>
-  Studio Iorio affianca imprese e professionisti nella gestione del personale, negli adempimenti del lavoro e nell’organizzazione dei rapporti con gli enti, con un approccio autorevole, chiaro e orientato alla continuità del servizio.
-</p>
-           
+            Studio Iorio affianca imprese e professionisti nella gestione del personale, negli adempimenti del lavoro e nell’organizzazione dei rapporti con gli enti, con un approccio autorevole, chiaro e orientato alla continuità del servizio.
+          </p>
+
           <div class="hero-actions">
             <a class="btn btn-primary" href="https://wa.me/393385462044?text=Buongiorno%2C%20vorrei%20ricevere%20informazioni%20sui%20servizi%20dello%20Studio%20Iorio" target="_blank">Contattaci su WhatsApp</a>
             <a class="btn btn-secondary" href="#contatti">Richiedi informazioni</a>
@@ -455,60 +496,9 @@
         <div class="hero-card">
           <h2>Studio professionale</h2>
           <p>
-            Una presenza istituzionale curata, servizi esposti in modo chiaro e un’immagine coerente con uno studio che desidera comunicare solidità, ordine e affidabilità.
+            Una presenza professionale curata, un linguaggio chiaro e servizi strutturati per offrire alle imprese un riferimento affidabile nella gestione del lavoro e del personale.
           </p>
-<section class="section">
-  <div class="container">
-    <h2 class="section-title">Chi è Amelia Iorio</h2>
 
-    <div class="approach-box">
-      <p>
-        Amelia Iorio è una Consulente del Lavoro iscritta all’Ordine di Napoli dal 1987.
-        Professionista delle risorse umane, ha maturato una solida esperienza in aziende appartenenti a diversi settori, occupandosi della gestione del rapporto di lavoro in tutte le sue fasi, dall’assunzione fino alla cessazione.
-        <br><br>
-        Alla competenza tecnico-professionale affianca una forte vocazione formativa: è docente abilitata all’insegnamento delle scienze umane e oggi si dedica in particolare alla formazione rivolta ad aziende e privati, con un approccio pratico, chiaro e orientato al valore.
-      </p>
-    </div>
-  </div>
-</section>
-<section class="section">
-  <div class="container">
-    <h2 class="section-title">Perché scegliere Studio Iorio</h2>
-    <p class="section-intro">
-      Un’impostazione professionale fondata su esperienza, affidabilità e attenzione concreta alle esigenze delle imprese.
-    </p>
-
-    <div class="services">
-      <article class="service-card">
-        <h3>Esperienza consolidata</h3>
-        <p>
-          Una presenza professionale costruita nel tempo, con una visione solida della consulenza del lavoro e della gestione del personale.
-        </p>
-      </article>
-
-      <article class="service-card">
-        <h3>Approccio chiaro e operativo</h3>
-        <p>
-          Supporto concreto, linguaggio chiaro e attenzione alla corretta gestione degli adempimenti e delle dinamiche aziendali.
-        </p>
-      </article>
-
-      <article class="service-card">
-        <h3>Focus sulle imprese</h3>
-        <p>
-          Un riferimento affidabile per aziende che cercano continuità, precisione e una consulenza realmente utile alle decisioni quotidiane.
-        </p>
-      </article>
-
-      <article class="service-card">
-        <h3>Competenza trasversale</h3>
-        <p>
-          Consulenza del lavoro, formazione e gestione dei rapporti con gli enti, con particolare attenzione anche al settore edile.
-        </p>
-      </article>
-    </div>
-  </div>
-</section>          
           <div class="mini-points">
             <div class="mini-point">Gestione del personale e adempimenti del lavoro</div>
             <div class="mini-point">Supporto a imprese, professionisti e attività del territorio</div>
@@ -576,8 +566,60 @@
         <h2 class="section-title">Approccio</h2>
         <div class="approach-box">
           <p>
-            Studio Iorio unisce competenza, esperienza e visione moderna, offrendo soluzioni chiare, rapide e concrete per le imprese, con un’impostazione professionale orientata all’affidabilità, alla qualità del servizio e alla cura dell’immagine.
+            Studio Iorio unisce competenza, esperienza e visione moderna, offrendo soluzioni chiare, rapide e concrete per le imprese, con un’impostazione professionale orientata all’affidabilità, alla qualità del servizio e alla continuità del supporto.
           </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="amelia-iorio" class="section">
+      <div class="container">
+        <h2 class="section-title">Chi è Amelia Iorio</h2>
+        <div class="bio-box">
+          <p>
+            Amelia Iorio è una Consulente del Lavoro iscritta all’Ordine di Napoli dal 1987. Professionista delle risorse umane, ha maturato una solida esperienza in aziende appartenenti a diversi settori, occupandosi della gestione del rapporto di lavoro in tutte le sue fasi, dall’assunzione fino alla cessazione.
+            <br><br>
+            Alla competenza tecnico-professionale affianca una forte vocazione formativa: è docente abilitata all’insegnamento delle scienze umane e oggi si dedica in particolare alla formazione rivolta ad aziende e privati, con un approccio pratico, chiaro e orientato al valore.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="perche-sceglierci" class="section">
+      <div class="container">
+        <h2 class="section-title">Perché scegliere Studio Iorio</h2>
+        <p class="section-intro">
+          Un’impostazione professionale fondata su esperienza, affidabilità e attenzione concreta alle esigenze delle imprese.
+        </p>
+
+        <div class="why-grid">
+          <article class="why-card">
+            <h3>Esperienza consolidata</h3>
+            <p>
+              Una presenza professionale costruita nel tempo, con una visione solida della consulenza del lavoro e della gestione del personale.
+            </p>
+          </article>
+
+          <article class="why-card">
+            <h3>Approccio chiaro e operativo</h3>
+            <p>
+              Supporto concreto, linguaggio chiaro e attenzione alla corretta gestione degli adempimenti e delle dinamiche aziendali.
+            </p>
+          </article>
+
+          <article class="why-card">
+            <h3>Focus sulle imprese</h3>
+            <p>
+              Un riferimento affidabile per aziende che cercano continuità, precisione e una consulenza realmente utile alle decisioni quotidiane.
+            </p>
+          </article>
+
+          <article class="why-card">
+            <h3>Competenza trasversale</h3>
+            <p>
+              Consulenza del lavoro, formazione e gestione dei rapporti con gli enti, con particolare attenzione anche al settore edile.
+            </p>
+          </article>
         </div>
       </div>
     </section>
