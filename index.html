@@ -1,151 +1,531 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Studio Iorio | Consulenza del Lavoro</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Studio Iorio | Consulenza del Lavoro</title>
+  <meta name="description" content="Studio Iorio - Consulenza del Lavoro. Gestione del personale, paghe e contributi, adempimenti INPS, INAIL e supporto alle imprese." />
+  <style>
+    :root{
+      --bg:#102b25;
+      --bg-soft:#173832;
+      --card:#1b3f38;
+      --card-2:#214942;
+      --gold:#d5af46;
+      --gold-soft:#e3c978;
+      --text:#f6f3ea;
+      --muted:#d6d2c6;
+      --line:rgba(213,175,70,.24);
+      --shadow:0 18px 40px rgba(0,0,0,.22);
+      --radius:18px;
+      --max:1180px;
+    }
 
-<style>
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #0f2e2a;
-    color: #f5f5f5;
-}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at top right, rgba(213,175,70,.12), transparent 18%),
+        linear-gradient(135deg, #0c231e 0%, var(--bg) 45%, #0b2621 100%);
+    }
 
-.container {
-    max-width: 1100px;
-    margin: auto;
-    padding: 40px 20px;
-}
+    .container{
+      width:min(var(--max), calc(100% - 40px));
+      margin:0 auto;
+    }
 
-header {
-    text-align: center;
-    padding: 40px 0;
-}
+    .topbar{
+      position:sticky;
+      top:0;
+      z-index:50;
+      backdrop-filter: blur(10px);
+      background:rgba(12,35,30,.72);
+      border-bottom:1px solid rgba(255,255,255,.05);
+    }
 
-h1 {
-    color: #d4af37;
-    font-size: 42px;
-    margin-bottom: 5px;
-}
+    .topbar-inner{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:16px 0;
+      gap:20px;
+    }
 
-h2 {
-    font-weight: normal;
-    margin-bottom: 20px;
-}
+    .brand{
+      display:flex;
+      flex-direction:column;
+      line-height:1;
+    }
 
-.section {
-    margin-top: 50px;
-}
+    .brand-title{
+      color:var(--gold);
+      font-size:28px;
+      font-weight:800;
+      letter-spacing:.04em;
+    }
 
-.section h3 {
-    color: #d4af37;
-    margin-bottom: 15px;
-}
+    .brand-sub{
+      color:var(--muted);
+      font-size:12px;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      margin-top:6px;
+    }
 
-.services {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-}
+    .nav{
+      display:flex;
+      gap:18px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
 
-.card {
-    background-color: #163a34;
-    padding: 20px;
-    border-radius: 8px;
-}
+    .nav a{
+      color:var(--muted);
+      text-decoration:none;
+      font-size:14px;
+      transition:.2s ease;
+    }
 
-.card strong {
-    display: block;
-    margin-bottom: 8px;
-}
+    .nav a:hover{
+      color:var(--gold-soft);
+    }
 
-.footer {
-    margin-top: 60px;
-    text-align: center;
-    font-size: 14px;
-    opacity: 0.7;
-}
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:14px 24px;
+      border-radius:999px;
+      text-decoration:none;
+      font-weight:700;
+      transition:.2s ease;
+      border:1px solid transparent;
+      cursor:pointer;
+    }
 
-.button {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 12px 20px;
-    background-color: #d4af37;
-    color: black;
-    text-decoration: none;
-    border-radius: 6px;
-    font-weight: bold;
-}
-</style>
+    .btn-primary{
+      background:linear-gradient(135deg, var(--gold-soft), var(--gold));
+      color:#1b241f;
+      box-shadow:0 10px 24px rgba(0,0,0,.18);
+    }
+
+    .btn-primary:hover{
+      transform:translateY(-1px);
+      filter:brightness(1.03);
+    }
+
+    .btn-secondary{
+      background:transparent;
+      color:var(--text);
+      border-color:var(--line);
+    }
+
+    .btn-secondary:hover{
+      background:rgba(255,255,255,.04);
+    }
+
+    .hero{
+      padding:72px 0 46px;
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap:34px;
+      align-items:center;
+    }
+
+    .eyebrow{
+      display:inline-block;
+      color:var(--gold-soft);
+      border:1px solid var(--line);
+      border-radius:999px;
+      padding:8px 14px;
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:.14em;
+      margin-bottom:18px;
+      background:rgba(255,255,255,.02);
+    }
+
+    h1{
+      margin:0 0 16px;
+      font-size:58px;
+      line-height:1.02;
+      letter-spacing:-.02em;
+      color:var(--gold);
+    }
+
+    .hero p{
+      margin:0;
+      color:var(--muted);
+      font-size:20px;
+      line-height:1.7;
+      max-width:740px;
+    }
+
+    .hero-actions{
+      display:flex;
+      gap:14px;
+      margin-top:28px;
+      flex-wrap:wrap;
+    }
+
+    .hero-card{
+      background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.06));
+      border:1px solid rgba(255,255,255,.06);
+      border-radius:26px;
+      padding:28px;
+      box-shadow:var(--shadow);
+      position:relative;
+      overflow:hidden;
+    }
+
+    .hero-card::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(circle at top right, rgba(213,175,70,.18), transparent 22%);
+      pointer-events:none;
+    }
+
+    .hero-card h2{
+      margin:0 0 16px;
+      color:var(--gold-soft);
+      font-size:28px;
+    }
+
+    .hero-card p{
+      font-size:16px;
+      line-height:1.8;
+      color:var(--muted);
+    }
+
+    .mini-points{
+      margin-top:22px;
+      display:grid;
+      gap:12px;
+    }
+
+    .mini-point{
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.05);
+      padding:14px 16px;
+      border-radius:14px;
+      color:var(--text);
+      font-size:15px;
+    }
+
+    .section{
+      padding:34px 0;
+    }
+
+    .section-title{
+      color:var(--gold);
+      font-size:34px;
+      margin:0 0 10px;
+    }
+
+    .section-intro{
+      color:var(--muted);
+      font-size:17px;
+      line-height:1.7;
+      margin:0 0 26px;
+      max-width:860px;
+    }
+
+    .services{
+      display:grid;
+      grid-template-columns:repeat(2, 1fr);
+      gap:18px;
+    }
+
+    .service-card{
+      background:linear-gradient(180deg, var(--card), var(--card-2));
+      border:1px solid rgba(255,255,255,.06);
+      border-radius:var(--radius);
+      padding:24px;
+      box-shadow:var(--shadow);
+      transition:.2s ease;
+    }
+
+    .service-card:hover{
+      transform:translateY(-2px);
+      border-color:rgba(213,175,70,.22);
+    }
+
+    .service-card h3{
+      margin:0 0 10px;
+      color:var(--text);
+      font-size:24px;
+    }
+
+    .service-card p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.7;
+      font-size:16px;
+    }
+
+    .approach{
+      margin-top:8px;
+      background:rgba(255,255,255,.03);
+      border:1px solid rgba(213,175,70,.14);
+      border-left:4px solid var(--gold);
+      border-radius:16px;
+      padding:24px;
+      box-shadow:var(--shadow);
+    }
+
+    .approach p{
+      margin:0;
+      color:var(--text);
+      font-size:18px;
+      line-height:1.8;
+    }
+
+    .contact-wrap{
+      display:grid;
+      grid-template-columns:1fr .95fr;
+      gap:20px;
+      align-items:stretch;
+    }
+
+    .contact-box{
+      background:linear-gradient(180deg, var(--card), var(--card-2));
+      border:1px solid rgba(255,255,255,.06);
+      border-radius:var(--radius);
+      padding:28px;
+      box-shadow:var(--shadow);
+    }
+
+    .contact-box h3{
+      margin:0 0 16px;
+      color:var(--gold-soft);
+      font-size:28px;
+    }
+
+    .contact-box p{
+      color:var(--muted);
+      line-height:1.8;
+      margin:0 0 20px;
+    }
+
+    .contact-list{
+      display:grid;
+      gap:14px;
+      margin:18px 0 0;
+    }
+
+    .contact-item{
+      padding:14px 16px;
+      border-radius:14px;
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.04);
+      color:var(--text);
+      font-size:16px;
+    }
+
+    .cta-panel{
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:flex-start;
+      gap:16px;
+    }
+
+    .cta-panel strong{
+      color:var(--gold-soft);
+      font-size:30px;
+      line-height:1.2;
+    }
+
+    .cta-panel span{
+      color:var(--muted);
+      font-size:17px;
+      line-height:1.8;
+    }
+
+    footer{
+      margin-top:44px;
+      padding:26px 0 34px;
+      border-top:1px solid rgba(255,255,255,.05);
+      color:rgba(255,255,255,.7);
+      text-align:center;
+      font-size:14px;
+    }
+
+    @media (max-width: 900px){
+      .hero-grid,
+      .services,
+      .contact-wrap{
+        grid-template-columns:1fr;
+      }
+
+      h1{
+        font-size:42px;
+      }
+
+      .hero p{
+        font-size:18px;
+      }
+
+      .topbar-inner{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+
+      .nav{
+        gap:12px;
+      }
+    }
+  </style>
 </head>
-
 <body>
 
-<div class="container">
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <div class="brand">
+        <div class="brand-title">STUDIO IORIO</div>
+        <div class="brand-sub">Consulenza del Lavoro</div>
+      </div>
 
-<header>
-    <h1>STUDIO IORIO</h1>
-    <h2>Consulenza del Lavoro</h2>
-    <p>
-        Supporto professionale per imprese nella gestione del personale,<br>
-        con un approccio moderno e orientato all'efficienza.
-    </p>
-</header>
-
-<section class="section">
-    <h3>Servizi</h3>
-
-    <div class="services">
-        <div class="card">
-            <strong>Gestione del personale</strong>
-            Dall'instaurazione del rapporto di lavoro alla sua cessazione.
-        </div>
-
-        <div class="card">
-            <strong>Elaborazione paghe e contributi</strong>
-            Cedolini, CU, F24, Uniemens e gestione completa degli adempimenti.
-        </div>
-
-        <div class="card">
-            <strong>Adempimenti INPS, INAIL e Agenzia Entrate</strong>
-            Gestione puntuale e conforme della posizione aziendale.
-        </div>
-
-        <div class="card">
-            <strong>Consulenza contrattuale e normativa</strong>
-            Supporto continuo nelle scelte aziendali e gestione del personale.
-        </div>
+      <nav class="nav">
+        <a href="#servizi">Servizi</a>
+        <a href="#approccio">Approccio</a>
+        <a href="#contatti">Contatti</a>
+      </nav>
     </div>
-</section>
+  </header>
 
-<section class="section">
-    <h3>Approccio</h3>
-    <p>
-        Studio Iorio unisce competenza, esperienza e visione moderna,<br>
-        offrendo soluzioni chiare, rapide e concrete per le imprese.
-    </p>
-</section>
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Consulenza del lavoro per imprese</div>
+          <h1>Competenza, solidità e visione moderna</h1>
+          <p>
+            Studio Iorio supporta imprese e realtà professionali nella gestione del personale, negli adempimenti del lavoro e nell’organizzazione dei rapporti con gli enti, con un approccio chiaro, operativo e affidabile.
+          </p>
 
-<section class="section">
-    <h3>Contatti</h3>
-    <p>
-        📞 338 5462044<br>
-        📩 info@studioioriocdl.it<br>
-        🌐 www.studioioriocdl.it
-    </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="https://wa.me/393385462044?text=Buongiorno%2C%20vorrei%20ricevere%20informazioni%20sui%20servizi%20dello%20Studio%20Iorio" target="_blank">Contattaci su WhatsApp</a>
+            <a class="btn btn-secondary" href="#contatti">Richiedi informazioni</a>
+          </div>
+        </div>
 
-    <a class="button" href="https://wa.me/393385462044?text=Buongiorno%20vorrei%20informazioni">
-        Contattaci su WhatsApp
-    </a>
-</section>
+        <div class="hero-card">
+          <h2>Studio professionale</h2>
+          <p>
+            Un’immagine professionale, un linguaggio chiaro e servizi strutturati per offrire alle aziende un punto di riferimento serio nella gestione del lavoro e del personale.
+          </p>
 
-<div class="footer">
+          <div class="mini-points">
+            <div class="mini-point">Assistenza operativa e consulenziale</div>
+            <div class="mini-point">Gestione puntuale degli adempimenti</div>
+            <div class="mini-point">Supporto dedicato a imprese e settore edile</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="servizi" class="section">
+      <div class="container">
+        <h2 class="section-title">Servizi</h2>
+        <p class="section-intro">
+          Un supporto completo nella gestione del personale e degli adempimenti, con attenzione alla correttezza normativa e all’efficienza organizzativa.
+        </p>
+
+        <div class="services">
+          <article class="service-card">
+            <h3>Gestione del personale</h3>
+            <p>
+              Dall’instaurazione del rapporto di lavoro alla sua cessazione, con supporto continuo nelle dinamiche organizzative e amministrative.
+            </p>
+          </article>
+
+          <article class="service-card">
+            <h3>Elaborazione paghe e contributi</h3>
+            <p>
+              Cedolini, CU, F24, Uniemens e gestione completa degli adempimenti periodici legati al personale dipendente.
+            </p>
+          </article>
+
+          <article class="service-card">
+            <h3>Adempimenti INPS, INAIL e Agenzia Entrate</h3>
+            <p>
+              Gestione puntuale e conforme delle posizioni aziendali, con attenzione alle scadenze e alla correttezza formale.
+            </p>
+          </article>
+
+          <article class="service-card">
+            <h3>Consulenza contrattuale e normativa</h3>
+            <p>
+              Supporto nelle scelte aziendali, nella corretta applicazione dei contratti e nella gestione dei rapporti di lavoro.
+            </p>
+          </article>
+
+          <article class="service-card">
+            <h3>Gestione lavoratori edili</h3>
+            <p>
+              Esperti nella gestione dei lavoratori edili, con attenzione agli aspetti contrattuali, contributivi e agli adempimenti specifici del settore.
+            </p>
+          </article>
+
+          <article class="service-card">
+            <h3>Supporto alle imprese</h3>
+            <p>
+              Un interlocutore professionale per aziende che cercano chiarezza, rapidità operativa e una presenza affidabile nella consulenza del lavoro.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="approccio" class="section">
+      <div class="container">
+        <h2 class="section-title">Approccio</h2>
+        <div class="approach">
+          <p>
+            Studio Iorio unisce competenza, esperienza e visione moderna, offrendo soluzioni chiare, rapide e concrete per le imprese, con uno stile professionale orientato all’affidabilità e alla continuità.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contatti" class="section">
+      <div class="container contact-wrap">
+        <div class="contact-box">
+          <h3>Contatti</h3>
+          <p>
+            Per informazioni o per un primo contatto conoscitivo, è possibile scrivere direttamente allo Studio.
+          </p>
+
+          <div class="contact-list">
+            <div class="contact-item">📞 338 5462044</div>
+            <div class="contact-item">📩 info@studioioriocdl.it</div>
+            <div class="contact-item">🌐 www.studioioriocdl.it</div>
+          </div>
+        </div>
+
+        <div class="contact-box cta-panel">
+          <strong>Richiedi un primo contatto</strong>
+          <span>
+            Un confronto iniziale può essere utile per comprendere le esigenze della tua impresa e valutare il supporto più adatto.
+          </span>
+          <a class="btn btn-primary" href="https://wa.me/393385462044?text=Buongiorno%2C%20vorrei%20ricevere%20informazioni%20sui%20servizi%20dello%20Studio%20Iorio" target="_blank">Scrivici su WhatsApp</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
     © Studio Iorio - Consulenza del Lavoro
-</div>
-
-</div>
+  </footer>
 
 </body>
 </html>
