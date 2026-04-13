@@ -320,6 +320,86 @@
       font-size:16px;
       line-height:1.78;
     }
+        .services-accordion{
+      max-width: 980px;
+      margin: 0 auto;
+      display: grid;
+      gap: 18px;
+    }
+
+    .accordion-item{
+      background: linear-gradient(180deg, var(--panel), var(--panel-2));
+      border: 1px solid rgba(255,255,255,.06);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .accordion-item::before{
+      content:"";
+      position:absolute;
+      right:-24px;
+      top:-24px;
+      width:110px;
+      height:110px;
+      border-radius:50%;
+      border:1px solid rgba(212,175,88,.08);
+      pointer-events:none;
+    }
+
+    .accordion-header{
+      width:100%;
+      background: transparent;
+      border: none;
+      color: var(--text);
+      text-align: left;
+      padding: 24px 26px;
+      font-size: 24px;
+      font-weight: 700;
+      cursor: pointer;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+    }
+
+    .accordion-header span{
+      color: var(--gold-soft);
+      font-size: 28px;
+      line-height: 1;
+      transition: transform .2s ease;
+      flex-shrink: 0;
+    }
+
+    .accordion-item.active .accordion-header span{
+      transform: rotate(45deg);
+    }
+
+    .accordion-content{
+      display: none;
+      padding: 0 26px 24px 26px;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.85;
+      max-width: 92%;
+    }
+
+    .accordion-item.active .accordion-content{
+      display:block;
+    }
+
+    .services-cta{
+      margin-top: 28px;
+      text-align:center;
+    }
+
+    .services-cta p{
+      margin: 0 0 18px 0;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.8;
+    }
 
     .approach-box,
     .bio-box{
@@ -511,55 +591,105 @@
       </div>
     </section>
 
-    <section id="servizi" class="section">
+       <section id="servizi" class="section">
       <div class="container">
         <h2 class="section-title">Servizi</h2>
         <p class="section-intro">
-          Un supporto strutturato nella gestione del lavoro, degli adempimenti e delle esigenze aziendali, con attenzione alla correttezza normativa e all’efficienza organizzativa.
+          Un punto di riferimento strategico e completo per le imprese nella gestione del lavoro.
+          Dalla consulenza ordinaria agli ambiti più specifici come sicurezza, organizzazione del personale e gestione delle controversie, lo Studio Iorio affianca il cliente con un supporto strutturato, concreto e continuativo.
         </p>
 
-        <div class="services">
-          <article class="service-card">
-            <h3>Gestione del personale</h3>
-            <p>
-              Dall’instaurazione del rapporto di lavoro alla cessazione, con supporto costante nelle dinamiche amministrative e organizzative.
-            </p>
-          </article>
+        <div class="services-accordion">
 
-          <article class="service-card">
-            <h3>Elaborazione paghe e contributi</h3>
-            <p>
-              Cedolini, CU, F24, Uniemens e gestione completa degli adempimenti periodici connessi al personale dipendente.
-            </p>
-          </article>
+          <div class="accordion-item">
+            <button class="accordion-header">
+              Consulenza del lavoro e gestione del personale
+              <span>+</span>
+            </button>
+            <div class="accordion-content">
+              Dall’instaurazione del rapporto di lavoro alla sua cessazione, con supporto costante nelle dinamiche amministrative, organizzative e nella corretta gestione del personale dipendente.
+            </div>
+          </div>
 
-          <article class="service-card">
-            <h3>Adempimenti INPS, INAIL e Agenzia Entrate</h3>
-            <p>
-              Gestione puntuale e conforme delle posizioni aziendali, con attenzione alle scadenze e alla correttezza formale.
-            </p>
-          </article>
+          <div class="accordion-item">
+            <button class="accordion-header">
+              Elaborazione paghe e contributi
+              <span>+</span>
+            </button>
+            <div class="accordion-content">
+              Cedolini paga, CU, F24, Uniemens e gestione completa degli adempimenti periodici connessi al personale, con attenzione alla precisione operativa e alla continuità del servizio.
+            </div>
+          </div>
 
-          <article class="service-card">
-            <h3>Consulenza contrattuale e normativa</h3>
-            <p>
-              Supporto nelle scelte aziendali, nella corretta applicazione dei contratti e nella gestione dei rapporti di lavoro.
-            </p>
-          </article>
+          <div class="accordion-item">
+            <button class="accordion-header">
+              Adempimenti INPS, INAIL e Agenzia Entrate
+              <span>+</span>
+            </button>
+            <div class="accordion-content">
+              Gestione puntuale e conforme delle posizioni aziendali, delle scadenze e dei rapporti con gli enti, per garantire al cliente serenità e controllo degli adempimenti.
+            </div>
+          </div>
 
-          <article class="service-card">
-            <h3>Gestione lavoratori edili</h3>
-            <p>
-              Esperti nella gestione dei lavoratori edili, con attenzione agli aspetti contrattuali, contributivi e agli adempimenti specifici del settore.
-            </p>
-          </article>
+          <div class="accordion-item">
+            <button class="accordion-header">
+              Consulenza contrattuale e normativa
+              <span>+</span>
+            </button>
+            <div class="accordion-content">
+              Supporto nelle scelte aziendali, nella corretta applicazione dei contratti collettivi e nella gestione dei rapporti di lavoro, con attenzione agli equilibri tra esigenze imprenditoriali e rispetto della normativa.
+            </div>
+          </div>
 
-          <article class="service-card">
-            <h3>Supporto alle imprese</h3>
-            <p>
-              Un riferimento professionale per aziende che cercano chiarezza, rapidità operativa e continuità nella consulenza del lavoro.
-            </p>
-          </article>
+          <div class="accordion-item">
+            <button class="accordion-header">
+              Gestione lavoratori edili
+              <span>+</span>
+            </button>
+            <div class="accordion-content">
+              Assistenza specializzata nella gestione dei lavoratori edili, con attenzione agli aspetti contrattuali, contributivi e agli adempimenti specifici del settore.
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-header">
+              APL e supporto organizzativo alle imprese
+              <span>+</span>
+            </button>
+            <div class="accordion-content">
+              Affiancamento nella gestione delle risorse umane e nell’organizzazione del lavoro in azienda, con un approccio pratico, operativo e orientato all’efficienza.
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-header">
+              Sicurezza sul lavoro – RSPP ai sensi del D.Lgs. 81/2008
+              <span>+</span>
+            </button>
+            <div class="accordion-content">
+              Supporto in materia di sicurezza sul lavoro e assunzione dell’incarico di RSPP ai sensi del D.Lgs. 81/2008, con attenzione agli obblighi aziendali e alla corretta gestione documentale.
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-header">
+              Conciliazioni in materia di lavoro
+              <span>+</span>
+            </button>
+            <div class="accordion-content">
+              Assistenza nella gestione delle controversie in materia di lavoro e nelle procedure conciliative, con l’obiettivo di tutelare l’azienda e ridurre il rischio di contenzioso.
+            </div>
+          </div>
+
+        </div>
+
+        <div class="services-cta">
+          <p>
+            Un unico interlocutore per la gestione completa del lavoro in azienda.
+          </p>
+          <a class="btn btn-primary" href="https://wa.me/393385462044?text=Buongiorno%2C%20vorrei%20ricevere%20informazioni%20sui%20servizi%20dello%20Studio%20Iorio" target="_blank">
+            Scrivici su WhatsApp
+          </a>
         </div>
       </div>
     </section>
@@ -671,8 +801,20 @@
   </main>
 
   <footer>
-    © Studio Iorio – Consulenza del Lavoro | Napoli
+    © Studio Iorio – Consulenza del Lavoro 
   </footer>
+
+  <script>
+    document.querySelectorAll('.accordion-header').forEach(button => {
+      button.addEventListener('click', () => {
+        const item = button.parentElement;
+        item.classList.toggle('active');
+      });
+    });
+  </script>
+
+</body>
+</html>
 
 </body>
 </html>
