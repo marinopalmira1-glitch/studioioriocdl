@@ -518,8 +518,22 @@
       font-size:14px;
       color:rgba(255,255,255,.74);
     }
+.brand{
+  display:flex;
+  align-items:center;
+  gap:18px;
+}
 
-    @media (max-width: 920px){
+.brand-left{
+  display:flex;
+  flex-direction:column;
+}
+
+.brand-logo-cdl{
+  width:46px;
+  height:auto;
+  opacity:.95;
+}    @media (max-width: 920px){
       .hero-grid,
       .services,
       .why-grid,
@@ -542,10 +556,14 @@
 
   <header class="topbar">
     <div class="container topbar-inner">
-      <div class="brand">
-        <div class="brand-title">STUDIO IORIO</div>
-        <div class="brand-sub">Consulenza del Lavoro</div>
-      </div>
+    <div class="brand">
+  <div class="brand-left">
+    <div class="brand-title">STUDIO IORIO</div>
+    <div class="brand-sub">Consulenza del Lavoro</div>
+  </div>
+
+  <img src="logo-cdl-line.svg" alt="Logo Consulenti del Lavoro" class="brand-logo-cdl">
+</div>
 
       <nav class="nav">
         <a href="#servizi">Servizi</a>
